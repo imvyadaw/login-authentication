@@ -1,0 +1,52 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Register</title>
+</head>
+<body class="bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center h-screen">
+
+  <!-- Form Container -->
+  <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8 space-y-6">
+    <h2 class="text-3xl font-extrabold text-center text-gray-800">Create Your Account</h2>
+
+    {% if error %}
+      <p class="text-red-500 text-center mb-4">{{ error }}</p>
+    {% endif %}
+
+    <!-- Registration Form -->
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+      
+      <!-- Email Input -->
+      <div>
+        <input type="email" name="email" placeholder="Email Address" class="w-full p-4 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-300" required>
+      </div>
+
+      <!-- Password Input -->
+      <div>
+        <input type="password" name="password" placeholder="Password" class="w-full p-4 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-300" required>
+      </div>
+
+      <!-- Register Button -->
+      <button type="submit" class="w-full py-3 bg-indigo-600 text-white font-semibold text-lg rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-500 transition duration-300">
+        Register
+      </button>
+    </form>
+
+    <!-- Footer Links -->
+    <div class="flex justify-between text-sm text-center">
+      <p>
+        Already have an account? <a href="/" class="text-indigo-600 hover:underline">Login</a>
+      </p>
+      <p>
+        <a href="/forgot-password/" class="text-indigo-600 hover:underline">Forgot Password?</a>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

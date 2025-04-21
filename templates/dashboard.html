@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>{{ request.user.username }}'s Dashboard</title>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-indigo-600 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-semibold">Dashboard</h1>
+      <div class="flex items-center space-x-4">
+        <span class="text-sm">Hello, <strong>{{ request.user.username }}</strong></span>
+        <a href="/" class="bg-white text-indigo-600 hover:bg-gray-200 text-sm px-3 py-1 rounded transition">Home</a>
+        <a href="{% url 'logout' %}" class="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded transition">
+          Logout
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-10">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Welcome back, {{ request.user.username }} 👋</h2>
+        <p class="text-gray-600 mb-6">
+          This is your dashboard. From here, you can manage your profile, view recent activity, and access your tools.
+        </p>
+
+        <!-- Example Dashboard Cards (optional) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="p-4 bg-indigo-100 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-indigo-700">Your Email</h3>
+            <p class="text-gray-800 mt-2">{{ request.user.email }}</p>
+          </div>
+
+          <div class="p-4 bg-green-100 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold text-green-700">Account Status</h3>
+            <p class="text-gray-800 mt-2">Active</p>
+          </div>
+        </div>
+
+        <!-- Add more cards/features as needed -->
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
