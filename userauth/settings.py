@@ -85,7 +85,6 @@ EMAIL_HOST_PASSWORD = 'lopv gixb ceto idbq'  # Replace with your Gmail password 
 DEFAULT_FROM_EMAIL = 'imblackdragondev@gmail.com'  # Your "from" email
 
 
-
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
